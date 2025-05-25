@@ -39,7 +39,7 @@ jobs:
 
       # Upload dos screenshots como artefatos
       - name: Upload Screenshots
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
           path: cypress/screenshots/web
@@ -47,7 +47,7 @@ jobs:
 
       # Upload dos vídeos como artefatos
       - name: Upload Videos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
           path: cypress/videos
