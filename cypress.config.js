@@ -8,6 +8,6 @@ module.exports = defineConfig({
       return config;
     },
     baseUrl: 'https://serverest.dev',
-    video: false, // Opcional: desativa gravação de vídeo
+    video: true, // Opcional: desativa gravação de vídeo
   },
 });

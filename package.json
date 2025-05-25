@@ -7,7 +7,7 @@
   "scripts": {
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "cy:run:allure": "npx cypress run --config video=false --env allure=true",
+    "cy:run:allure": "npx cypress run --config video=true --env allure=true",
     "cy:gererate:allure": "allure generate allure-results --clean --output allure-report",
     "cy:open:allure": "allure open allure-report"
   }
