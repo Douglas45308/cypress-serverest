@@ -1,0 +1,41 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - feature/api
+  pull_request:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Configuração do Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      # Instalação das dependências
+      - name: Install dependencies
+        run: npm install
+
+      # Executar os testes no modo headless
+      - name: Run Cypress tests
+        run: npm run cy:run
+
+      # Gerar relatório Allure
+      - name: Generate Allure Report
+        run: npm run cy:gererate:allure
+
+      # Upload do relatório Allure como artefato
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report
