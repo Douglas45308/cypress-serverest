@@ -43,6 +43,7 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+          if-no-files-found: ignore
 
       # Upload dos vídeos como artefatos
       - name: Upload Videos
@@ -50,3 +51,4 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+          if-no-files-found: ignore
