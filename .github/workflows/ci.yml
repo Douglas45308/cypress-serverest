@@ -1,0 +1,55 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+      - feature/api
+  pull_request:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Configuração do Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      # Instalação das dependências
+      - name: Install dependencies
+        run: npm install
+
+      # Corrigir permissões dos binários
+      - name: Corrigir permissões dos binários
+        run: chmod +x ./node_modules/.bin/*
+
+      # Instalar o binário do Cypress
+      - name: Ensure Cypress binary installation
+        run: npx cypress install
+
+      # Executar os testes no modo headless
+      - name: Run Cypress tests
+        run: npm run cy:run
+
+      # Upload dos screenshots como artefatos
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots/web
+          if-no-files-found: ignore
+
+      # Upload dos vídeos como artefatos
+      - name: Upload Videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
