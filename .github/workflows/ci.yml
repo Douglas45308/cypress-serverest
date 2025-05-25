@@ -25,6 +25,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Corrigir permissões dos binários
+      - name: Corrigir permissões dos binários
+        run: chmod +x ./node_modules/.bin/*
+
       # Instalar o binário do Cypress
       - name: Ensure Cypress binary installation
         run: npx cypress install
