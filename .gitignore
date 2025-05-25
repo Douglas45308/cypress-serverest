@@ -1,0 +1,29 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Cypress specific files
+cypress/screenshots/
+cypress/videos/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# VS Code specific files
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+allure-results/
+allure-report/
+*.png
+*.jpg   
