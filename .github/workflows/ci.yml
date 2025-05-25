@@ -25,6 +25,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Instalar o binário do Cypress
+      - name: Ensure Cypress binary installation
+        run: npx cypress install
+
       # Executar os testes no modo headless
       - name: Run Cypress tests
         run: npm run cy:run
