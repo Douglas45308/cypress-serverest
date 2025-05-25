@@ -3,9 +3,11 @@ export const elements = {
     email: '[data-testid="email"]',
     password: '[data-testid="password"]', 
     cadastrarButton: '[data-testid="cadastrar"]',
-    administrador: '[data-testid="administrador"]',
+    administrador: '[data-testid="checkbox"]',
+
+   
         
-                      
+   
 }
 
 
