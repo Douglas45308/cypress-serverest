@@ -28,18 +28,3 @@ jobs:
       # Executar os testes no modo headless
       - name: Run Cypress tests
         run: npm run cy:run
-
-      # Gerar relatório Allure
-      - name: Generate Allure Report
-        run: npm run cy:gererate:allure
-
-      # Verificar a existência do relatório Allure
-      - name: Verify Allure Report
-        run: if [ ! -d "allure-report" ]; then echo "Allure report not found"; exit 1; fi
-
-      # Upload do relatório Allure como artefato
-      - name: Upload Allure Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-report
-          path: allure-report
